@@ -1,4 +1,4 @@
-# Project Name
+# Creating a simple REST API with .NET Core, Azure SQL and FusionCache
 
 (short, 1-3 sentenced, description of the project)
 
