@@ -70,7 +70,8 @@ namespace WebApi1.Controllers
 			// CACHE
 			_cache.Set(
 				$"product:{product.Id}",
-				product
+				product,
+				product.GetCacheDuration()
 			);
 
 			return CreatedAtAction("Get", new { Id = newId }, product);
@@ -84,7 +85,14 @@ namespace WebApi1.Controllers
 
 			var product = _cache.GetOrSet(
 				$"product:{id}",
-				_ => conn.Get<Product>(id)
+				(ctx, _) =>
+				{
+					var x = conn.Get<Product>(id);
+
+					ctx.Options.Duration = x.GetCacheDuration();
+
+					return x;
+				}
 			);
 
 			if (product is null)
@@ -112,7 +120,8 @@ namespace WebApi1.Controllers
 			// CACHE
 			_cache.Set(
 				$"product:{product.Id}",
-				product
+				product,
+				product.GetCacheDuration()
 			);
 
 			return Ok(product);
