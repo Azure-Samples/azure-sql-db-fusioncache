@@ -40,8 +40,11 @@ namespace WebApi1
 			{
 				// SET DEFAULT OPTIONS
 				options.DefaultEntryOptions = new FusionCacheEntryOptions()
+					// DEFULT DURATION OF 5min
 					.SetDuration(TimeSpan.FromMinutes(5))
+					// ENABLE FAIL-SAFE (WITH A THROTTLE DURATION OF 1min)
 					.SetFailSafe(true, TimeSpan.FromMinutes(1))
+					// ENABLE A FACTORY (SOFT) TIMEOUT OF 100ms
 					.SetFactoryTimeouts(TimeSpan.FromMilliseconds(100));
 			});
 
