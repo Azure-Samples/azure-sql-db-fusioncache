@@ -6,7 +6,7 @@ A sample showcasing a REST API backed by an Azure SQL database and powered by [F
 
 ## 👩‍🏫 What is this about?
 
-Let's say you have a simple piece of code like this in your REST API:
+Let's say we have a simple piece of code like this in our REST API:
 
 ```csharp
 var id = 42;
@@ -15,7 +15,7 @@ var product = GetProductFromDb(id);
 
 this can be subject to unnecessary [database overload](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FactoryOptimization.md), temporary database failures, slow calls due to network congestion or [anything else](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) really.
 
-By simply introducing FusionCache you can easily handle most of these problems, by simply turning the line above into this:
+By simply introducing FusionCache we can easily handle most of these problems, by simply turning the line above into this:
 
 ```csharp
 var id = 42;
@@ -25,33 +25,33 @@ var product = cache.GetOrSet<Product>(
 );
 ```
 
-In this sample you'll see how to use FusionCache main features, like the [fail-safe](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FailSafe.md) mechanism, the optional [2nd level](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/CacheLevels.md), soft/hard [timeouts](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Timeouts.md) and [adaptive caching](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/AdaptiveCaching.md).
+In this sample we'll see how to use FusionCache main features, like the [fail-safe](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FailSafe.md) mechanism, the optional [2nd level](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/CacheLevels.md), soft/hard [timeouts](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Timeouts.md) and [adaptive caching](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/AdaptiveCaching.md).
 
-For more you can read the official FusionCache [docs](https://github.com/jodydonetti/ZiggyCreatures.FusionCache).
+For more we can read the official FusionCache [docs](https://github.com/jodydonetti/ZiggyCreatures.FusionCache).
 
-Basically, this will be your journey:
+Basically, this will be our journey:
 
-![Two sample graphs showing the results of using FusionCache in your service](/docs/stepbystep-intro.png)
+![Two sample graphs showing the results of using FusionCache in our service](/docs/stepbystep-intro.png)
 
 ## 🧰 Prerequisites
 
-You'll need an [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) database or compatible.
+We'll need an [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) database or compatible.
 
-If you want to also use a 2nd level (distributed) cache and/or a backplane, you'll also need a [Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/quickstart-create-redis) instance somewhere.
+If we want to also use a 2nd level (distributed) cache and/or a backplane, we'll also need a [Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/quickstart-create-redis) instance somewhere.
 
-FusionCache supports `.NET Standard 2.0`, so it runs on basically [any version](https://dotnet.microsoft.com/en-us/platform/dotnet-standard#versions) of .NET: this sample project though has been created for .NET 6, so be sure to have the [.NET 6.0](https://dotnet.microsoft.com/download) SDK (or newer) installed on your machine.
+FusionCache supports `.NET Standard 2.0`, so it runs on basically [any version](https://dotnet.microsoft.com/en-us/platform/dotnet-standard#versions) of .NET: this sample project though has been created for .NET 6, so be sure to have the [.NET 6.0](https://dotnet.microsoft.com/download) SDK (or newer) installed on our machine.
 
 ## ⭐ Quickstart
 
 To get started:
-- create an [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) database, you can even do it [for free](https://azure.microsoft.com/en-us/free/).
+- create an [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) database, we can even do it [for free](https://azure.microsoft.com/en-us/free/).
 - execute the SQL script located at [/data/schema.sql](/data/schema.sql) which will generate the necessary tables ([need help?](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-database))
-- download or clone this repo on your local machine
-- set the connection string to point to your Azure SQL database
-- if you want, also set the connection string to point to a Redis instance to have a [2nd level](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/CacheLevels.md) cache and a [backplane](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Backplane.md)
+- download or clone this repo on our local machine
+- set the connection string to point to our Azure SQL database
+- if we want, we can also set the connection string to point to a Redis instance to have a [2nd level](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/CacheLevels.md) cache and a [backplane](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Backplane.md)
 - run the `WebApi1` project
 
-Going at [https://localhost:5001](https://localhost:5001) you should see this screen:
+Going at [https://localhost:5001](https://localhost:5001) we should see this screen:
 
 ![The initial Swagger page with the available endpoints](/docs/screenshot.png)
 
@@ -74,36 +74,36 @@ When using the optional 2nd level, these packages are also used:
 
 ## 🔌 Connection strings
 
-If you don't want to save your **Sql** connection string in the `appsettings.json` file for security reasons, you can just use a [secrets manager](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&tabs=windows) or set it using an environment variable:
+If we don't want to save our **Sql** connection string in the `appsettings.json` file for security reasons, we can just use a [secrets manager](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&tabs=windows) or set it using an environment variable:
 
 Linux:
 
 ```bash
-export ConnectionStrings__Sql="<your-connection-string>"
+export ConnectionStrings__Sql="<our-connection-string>"
 ```
 
 Windows (Powershell):
 
 ```powershell
-$Env:ConnectionStrings__Sql="<your-connection-string>"
+$Env:ConnectionStrings__Sql="<our-connection-string>"
 ```
 
-Your connection string is something like:
+Our connection string should be something like:
 
 ```text
-SERVER=<your-server-name>.database.windows.net;DATABASE=<your-database-name>;UID=<your-username>;PWD=<your-password>
+SERVER=<our-server-name>.database.windows.net;DATABASE=<our-database-name>;UID=<our-username>;PWD=<our-password>
 ```
 
-Just replace `<your-server-name>`, `<your-database-name>`, `<your-username>` and `<your-password>` with the correct values for your environment.
+Just replace `<our-server-name>`, `<our-database-name>`, `<our-username>` and `<our-password>` with the correct values for our environment.
 
-The same procedure can be used for the **Redis** connection string, if you would like to try to use the 2nd level or the backplane.
+The same procedure can be used for the **Redis** connection string, if we would like to try to use the 2nd level or the backplane.
 
 ## 🚀 Good, now what? (TO FINISH)
 
 This sample showcases different ways to use FusionCache: let's take a look at each part.
 
 ### Initialization
-In the `Program.cs` file (other project types may have a `Startup.cs` file, but it's basically the same) you'll find how the various parts are setup.
+In the `Program.cs` file (other project types may have a `Startup.cs` file, but it's basically the same) we'll find how the various parts are setup.
 
 We read the 2 connection strings from the config:
 
@@ -204,12 +204,60 @@ _cache.Remove(
 
 ### Adaptive caching (Products)
 
-The `ProductsControllre` is almost the same as the `CompaniesController`, both conceptually and as the code itself. Than main difference is that here we decided to actively specify a different caching duration, and not just a fixed one but an **adaptive** one.
+The `ProductsController` is almost the same as the `CompaniesController`, both conceptually and as the code itself. Than main difference is that here we decided to actively specify a different caching `Duration`, and not just a fixed one but an **adaptive** one.
 
-But what does adaptive caching mean?
+But what does **adaptive caching** mean?
 
-[TO FINISH]
+It means that we can have different entry options (like `Duration`, `Priority`, etc...) for each single piece of data, based on some fields of the data itself.
 
+To not have code scattered around, we created a method on the `Product` class like this:
+
+```csharp
+public TimeSpan GetCacheDuration() {
+    // LOGIC HERE
+}
+```
+
+that we can call like this:
+
+```csharp
+var duration = product.GetCacheDuration();
+```
+
+Now, if we already have the data to cache and simply need to do a `cache.Set("key", data)` that is not hard to do, right?
+
+It should be something simple like this:
+
+```csharp
+_cache.Set(
+    $"product:{product.Id}",
+    product,
+    product.GetCacheDuration()
+);
+```
+
+But how can we to do it when we use the `cache.GetOrSet("key", _ => ...)` method? In that case we do not have the data upfront, so we cannot change the options based on that: the only moment when we'll have the data is **during** the factory execution (that is, **inside** the part where we load the data from the database), so how can we do that?
+
+Easy, we simply user a different `GetOrSet` overload, one with an additional *context* object, with which we can **adapt** the entry options based on our own logic.
+
+Here's the related code:
+
+```csharp
+var product = _cache.GetOrSet(
+    $"product:{id}",
+    (ctx, _) =>
+    {
+        var x = conn.Get<Product>(id);
+
+        // ADAPT THE ENTRY OPTIONS HERE
+        ctx.Options.Duration = x.GetCacheDuration();
+
+        return x;
+    }
+);
+```
+
+In this particular case we let the `Duration` be lower for data updated recently, whereas for data that has not been touched for some time we can suppose it will not receive updates anymore and so we are ok with caching it for some more time. We will basically avoid going to the database every `30sec` for something that has been touched last time, say, a year ago. Makes sense?
 
 ## 📕 Learn more
 
