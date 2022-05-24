@@ -295,4 +295,6 @@ If you want to learn more about using .NET with Visual Studio Code, you can star
 
 <img src="docs/dapper-logo.jpg" align="right" width="100" height="100" alt="Dapper logo" />
 
-Interested in [Dapper](https://github.com/DapperLib/Dapper)? Great, look no further with this nice [introduction](https://medium.com/dapper-net/get-started-with-dapper-net-591592c335aa) by [Davide Mauri](https://twitter.com/mauridb). Want more? He made an entire [series](https://medium.com/dapper-net/dapper-net-tutorial-summary-79125c8ecdb2), covering various topics like [multiple executions](https://medium.com/dapper-net/multiple-executions-56c410e9f8dd), [SQL Server specific features](https://medium.com/dapper-net/sql-server-specific-features-2773d894a6ae), [Custom Type Handling](https://medium.com/dapper-net/custom-type-handling-4b447b97c620) and more.
+Interested in [Dapper](https://github.com/DapperLib/Dapper)? Great, look no further with this nice [introduction](https://medium.com/dapper-net/get-started-with-dapper-net-591592c335aa) by [Davide Mauri](https://twitter.com/mauridb).
+
+Want more? He made an entire [series](https://medium.com/dapper-net/dapper-net-tutorial-summary-79125c8ecdb2), covering various topics like [multiple executions](https://medium.com/dapper-net/multiple-executions-56c410e9f8dd), [SQL Server specific features](https://medium.com/dapper-net/sql-server-specific-features-2773d894a6ae), [Custom Type Handling](https://medium.com/dapper-net/custom-type-handling-4b447b97c620) and more.
