@@ -12,15 +12,15 @@ namespace WebApi1.Models
 
 		public TimeSpan GetCacheDuration()
 		{
-			// MORE FRESH THAN 10min
+			// MORE FRESH THAN 10min: CACHE FOR 30sec
 			if (LastUpdatedAt > DateTimeOffset.UtcNow - TimeSpan.FromMinutes(10))
 				return TimeSpan.FromSeconds(30);
 
-			// MORE FRESH THAN 1h
+			// MORE FRESH THAN 1h: CACHE FOR 2min
 			if (LastUpdatedAt > DateTimeOffset.UtcNow - TimeSpan.FromHours(1))
 				return TimeSpan.FromMinutes(2);
 
-			// DEFAULT
+			// OLDER: CACHE FOR 5min
 			return TimeSpan.FromMinutes(5);
 		}
 	}
