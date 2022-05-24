@@ -64,12 +64,6 @@ namespace WebApi1.Controllers
 			if (newId <= 0)
 				return BadRequest();
 
-			// CACHE
-			_cache.Set(
-				$"company:{company.Id}",
-				company
-			);
-
 			return CreatedAtAction("Get", new { Id = newId }, company);
 		}
 
