@@ -99,6 +99,8 @@ The same procedure can be used for the **Redis** connection string, if you would
 
 ## 📕 Learn more
 
+### FusionCache
+
 <img src="docs/fusioncache-logo.png" align="left" width="100" height="100" alt="FusionCache logo" />
 
 FusionCache looks nice to you? There's a [gentle introduction](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/AGentleIntroduction.md) to get familiar with it.
@@ -108,7 +110,8 @@ You may then take a look at a couple of its main features, like [cache stampede 
 On the official GitHub repo you can find all of this and more, including a detailed [step by step](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/StepByStep.md) (grab some coffee ☕) that highlights from start to finish how each feature can help you and what benefits you will achieve.
 
 <br/>
-<br/>
+
+### .NET
 
 <img src="docs/dotnet-logo.png" align="right" width="100" height="100" alt=".NET logo" />
 
@@ -117,14 +120,16 @@ If you're new to .NET you may want start with a quick [intro video](https://www.
 There are also a lot of tutorials available on the [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/?products=dotnet) platform, like an [Introduction to .NET](https://docs.microsoft.com/en-us/learn/modules/dotnet-introduction/), how to [Write your first C# code](https://docs.microsoft.com/en-us/learn/modules/csharp-write-first/) or what to do to [Create a web API with ASP.NET Core controllers](https://docs.microsoft.com/en-us/learn/modules/build-web-api-net-core/?view=aspnetcore-3.1).
 
 <br/>
-<br/>
+
+### Visual Studio Code
 
 <img src="docs/vscode-logo.png" align="left" width="100" height="100" alt="Visual Studio Code logo" />
 
 If you want to learn more about using .NET with Visual Studio Code, you can start with [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/languages/dotnet). Sometimes problems happen, so it's nice to know how to [Interactively debug .NET apps with the Visual Studio Code debugger](https://docs.microsoft.com/en-us/learn/modules/dotnet-debug/). It's also easy to [Develop web applications with Visual Studio Code](https://docs.microsoft.com/en-us/learn/modules/develop-web-apps-with-vs-code/) and to use [GitHub in Visual Studio Code](https://docs.microsoft.com/en-us/learn/modules/introduction-to-github-visual-studio-code/).
 
 <br/>
-<br/>
+
+### Dapper
 
 <img src="docs/dapper-logo.jpg" align="right" width="100" height="100" alt="Dapper logo" />
 
