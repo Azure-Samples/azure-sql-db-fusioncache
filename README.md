@@ -1,4 +1,23 @@
-# Creating a simple REST API with .NET Core, Azure SQL and FusionCache
+---
+page_type: sample
+languages:
+  - csharp
+  - tsql
+  - sql
+products:
+  - azure
+  - vs-code
+  - azure-sql-database
+  - azure-web-apps
+  - azure-sql-database
+  - azure-cache-redis
+  - dotnet
+  - dotnet-core
+  - azure-app-service-web
+description: 'Creating a simple REST API with .NET Core, Azure SQL Database and FusionCache'
+---
+
+# Creating a simple REST API with .NET Core, Azure SQL Database and FusionCache
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
