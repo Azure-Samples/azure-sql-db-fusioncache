@@ -21,7 +21,7 @@ description: 'Creating a simple REST API with .NET Core, Azure SQL Database and 
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-A sample showcasing a REST API backed by an Azure SQL database and powered by [FusionCache](https://github.com/jodydonetti/ZiggyCreatures.FusionCache), to achieve top performance and robustness.
+A little sample showcasing a REST API backed by an Azure SQL database and powered by [FusionCache](https://github.com/jodydonetti/ZiggyCreatures.FusionCache), to achieve top performance and robustness.
 
 ## 👩‍🏫 What is this about?
 
@@ -32,9 +32,9 @@ var id = 42;
 var product = GetProductFromDb(id);
 ```
 
-this can be subject to unnecessary [database overload](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FactoryOptimization.md), temporary database failures, slow calls due to network congestion or [anything else](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) really.
+this can be subject to unnecessary [database overload](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FactoryOptimization.md), temporary database failures, slow calls due to a temporary network congestion or [anything else](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) really.
 
-By simply introducing FusionCache we can easily handle most of these problems, by simply turning the line above into this:
+By simply introducing FusionCache we can easily handle most of these problems. Just turn the line above into this:
 
 ```csharp
 var id = 42;
@@ -48,7 +48,7 @@ In this sample we'll see how to use FusionCache main features, like the [fail-sa
 
 For more we can read the official FusionCache [docs](https://github.com/jodydonetti/ZiggyCreatures.FusionCache).
 
-Basically, this will be our journey:
+Basically, this is the ideal result:
 
 ![Two sample graphs showing the results of using FusionCache in our service](/docs/stepbystep-intro.png)
 
@@ -58,7 +58,7 @@ We'll need an [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/datab
 
 If we want to also use a 2nd level (distributed) cache and/or a backplane, we'll also need a [Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/quickstart-create-redis) instance somewhere.
 
-FusionCache supports `.NET Standard 2.0`, so it runs on basically [any version](https://dotnet.microsoft.com/en-us/platform/dotnet-standard#versions) of .NET: this sample project though has been created for .NET 6, so be sure to have the [.NET 6.0](https://dotnet.microsoft.com/download) SDK (or newer) installed on our machine.
+FusionCache targets `.NET Standard 2.0`, so it runs on basically [any version](https://dotnet.microsoft.com/en-us/platform/dotnet-standard#versions) of .NET: this sample project though has been created for .NET 6, so be sure to have the [.NET 6.0](https://dotnet.microsoft.com/download) SDK (or newer) installed on our machine.
 
 ## ⭐ Quickstart
 
@@ -117,7 +117,7 @@ Just replace `<our-server-name>`, `<our-database-name>`, `<our-username>` and `<
 
 The same procedure can be used for the **Redis** connection string, if we would like to try to use the 2nd level or the backplane.
 
-## 🚀 Good, now what? (TO FINISH)
+## 🚀 Good, now what?
 
 This sample showcases different ways to use FusionCache: let's take a look at each part.
 
@@ -178,14 +178,14 @@ builder.Services.AddFusionCache(options =>
 
 As we can see we have opted for these defaults:
 - a `Duration` of `5min`
-- the [fail-safe](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FailSafe.md) mechanism enabled, and with a max duration of `1h`
-- a [soft timeout](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Timeouts.md) of `100ms`
+- the [fail-safe](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FailSafe.md) mechanism enabled, and with a max duration (`FailSafeMaxDUration`) of `1h`
+- a [soft timeout](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Timeouts.md) (`FactorySoftTimeout`)of `100ms`
 
 Keep in mind that these are just defaults: later on we can **override** anything we want in each single call, so think of this as just a baseline from where to start.
 
 Finally there's the usual ASP.NET stuff: controllers, Swagger support and so on.
 
-### Simple caching (Companies)
+### Simple caching
 
 The `CompaniesController` provides access to, well, some sample companies: we should remember to generate some via the `/companies/generate/{quantity}` endpoint (like `/companies/generate/10` to generate 10 of them).
 
@@ -198,7 +198,7 @@ var company = _cache.GetOrSet(
 );
 ```
 
-What this does is asking FusionCache for the entry with the key `"company:{id}"` and also telling it how to go get the data if not there: FusionCache automatically handles multiple concurrent calls in an optimized way to avoid the [Cache Stampede](https://en.wikipedia.org/wiki/Cache_stampede) problem, and coordinate the dance between the caching layer(s), the database, timeouts and failures.
+What this does is asking FusionCache for the entry with the key `"company:{id}"` and also telling it how to go get the data if not there: FusionCache automatically handles multiple concurrent calls in an optimized way to avoid the [Cache Stampede](https://en.wikipedia.org/wiki/Cache_stampede) problem, and coordinates the dance between the caching layer(s), the database, timeouts and failures.
 
 As we can see we haven't even specified a `Duration` or other options: this is because this is the "simple caching" scenario and we decided to rely on the **defaults** we set earlier.
 
@@ -213,6 +213,15 @@ _cache.Set(
 );
 ```
 
+It is worth pointing out that another perfectly valid approach would be not to update the entry in the cache, but to just remove it: when the next request comes in for that specific company, FusionCache will simply go to the database in an optimized way and grab the last version.
+
+The differences between the two approaches are:
+
+- removing the cache entry will save some memory in case that piece of data is not requested anymore, but if instead it will be requested again it may takes more time to go grab the data from the database. Also, in case of temporary failures of the database, there would not be a stale/fallback entry to use (via fail-safe)
+- updating the cache will consume some more memory, but the data will be available immediately for consumption when requested and there will also be a stale/fallback entry to use in case of problems (again, thanks to fail-safe)
+
+As you can see there is not a "right approach" in and on itself, it always depends on context.
+
 For the `Remove` action we also make sure to, well, remove the data from the cache: this will avoid serving data from the cache that does not exist anymore in the database.
 
 ```csharp
@@ -221,7 +230,7 @@ _cache.Remove(
 );
 ```
 
-### Adaptive caching (Products)
+### Adaptive caching
 
 The `ProductsController` is almost the same as the `CompaniesController`, both conceptually and as the code itself. Than main difference is that here we decided to actively specify a different caching `Duration`, and not just a fixed one but an **adaptive** one.
 
@@ -279,6 +288,8 @@ var product = _cache.GetOrSet(
 In this particular case we let the `Duration` be lower for data updated recently, whereas for data that has not been touched for some time we can suppose it will not receive updates anymore and so we are ok with caching it for some more time. We will basically avoid going to the database every `30sec` for something that has been touched last time, say, a year ago. Makes sense?
 
 ## 📕 Learn more
+
+If you are interested in learning more take a look here.
 
 ### FusionCache
 
