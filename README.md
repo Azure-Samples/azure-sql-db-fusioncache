@@ -32,7 +32,7 @@ var id = 42;
 var product = GetProductFromDb(id);
 ```
 
-this can be subject to unnecessary [database overload]([https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FactoryOptimization.md](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/CacheStampede.md)), temporary database failures, slow calls due to a temporary network congestion or [anything else](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) really.
+this can be subject to unnecessary [database overload](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/CacheStampede.md), temporary database failures, slow calls due to a temporary network congestion or [anything else](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) really.
 
 By simply introducing FusionCache we can easily handle most of these problems. Just turn the line above into this:
 
