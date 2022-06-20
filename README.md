@@ -7,7 +7,6 @@ languages:
 products:
   - azure
   - vs-code
-  - azure-sql-database
   - azure-web-apps
   - azure-sql-database
   - azure-cache-redis
