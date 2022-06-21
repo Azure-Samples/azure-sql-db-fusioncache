@@ -292,7 +292,7 @@ If you are interested in learning more take a look here.
 
 ### FusionCache
 
-<img src="docs/fusioncache-logo.png" align="left" width="100" height="100" alt="FusionCache logo" />
+![FusionCache logo](docs/fusioncache-logo.png)
 
 FusionCache looks nice to you? There's a [gentle introduction](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/AGentleIntroduction.md) to get familiar with it.
 
@@ -304,7 +304,7 @@ On the official GitHub repo you can find all of this and more, including a detai
 
 ### .NET
 
-<img src="docs/dotnet-logo.png" align="right" width="100" height="100" alt=".NET logo" />
+![.NET logo](docs/dotnet-logo.png)
 
 If you're new to .NET you may want start with a quick [intro video](https://www.youtube.com/watch?v=eIHKZfgddLM) by [Scott Hanselman](https://twitter.com/shanselman) and [Kendra Havens](https://twitter.com/gotheap).
 
@@ -314,7 +314,7 @@ There are also a lot of tutorials available on the [Microsoft Learn](https://doc
 
 ### Visual Studio Code
 
-<img src="docs/vscode-logo.png" align="left" width="100" height="100" alt="Visual Studio Code logo" />
+![Visual Studio Code logo](docs/vscode-logo.png)
 
 If you want to learn more about using .NET with Visual Studio Code, you can start with [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/languages/dotnet). Sometimes problems happen, so it's nice to know how to [Interactively debug .NET apps with the Visual Studio Code debugger](https://docs.microsoft.com/en-us/learn/modules/dotnet-debug/). It's also easy to [Develop web applications with Visual Studio Code](https://docs.microsoft.com/en-us/learn/modules/develop-web-apps-with-vs-code/) and to use [GitHub in Visual Studio Code](https://docs.microsoft.com/en-us/learn/modules/introduction-to-github-visual-studio-code/).
 
@@ -322,7 +322,7 @@ If you want to learn more about using .NET with Visual Studio Code, you can star
 
 ### Dapper
 
-<img src="docs/dapper-logo.jpg" align="right" width="100" height="100" alt="Dapper logo" />
+![Dapper logo](docs/dapper-logo.jpg)
 
 Interested in [Dapper](https://github.com/DapperLib/Dapper)? Great, look no further with this nice [introduction](https://medium.com/dapper-net/get-started-with-dapper-net-591592c335aa) by [Davide Mauri](https://twitter.com/mauridb).
 
