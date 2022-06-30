@@ -151,7 +151,7 @@ if (string.IsNullOrWhiteSpace(redisConn) == false)
     });
     
     // ADD SERVICES: JSON SERIALIZER
-	builder.Services.AddFusionCacheSystemTextJsonSerializer();
+    builder.Services.AddFusionCacheSystemTextJsonSerializer();
     
     // ADD SERVICES: REDIS BACKPLANE
     builder.Services.AddFusionCacheStackExchangeRedisBackplane(options =>
