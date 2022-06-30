@@ -28,6 +28,9 @@ namespace WebApi1
 					options.Configuration = redisConn;
 				});
 
+				// ADD SERVICES: JSON SERIALIZER
+				builder.Services.AddFusionCacheSystemTextJsonSerializer();
+
 				// ADD SERVICES: REDIS BACKPLANE
 				builder.Services.AddFusionCacheStackExchangeRedisBackplane(options =>
 				{

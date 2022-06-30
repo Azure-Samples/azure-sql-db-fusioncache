@@ -131,14 +131,14 @@ var sqlConn = builder.Configuration.GetConnectionString("Sql");
 var redisConn = builder.Configuration.GetConnectionString("Redis");
 ```
 
-We then register a `DapperContext`, which is a small class to ease the creation of a conection to the database. It's not strictly needed but it can be a nice way to go:
+We then register a `DapperContext`, which is a small class to ease the creation of a connection to the database. It's not strictly needed but it can be a nice way to go:
 
 ```csharp
 // ADD SERVICES: DAPPER CONTEXT
 builder.Services.AddSingleton<DapperContext>(new DapperContext(sqlConn));
 ```
 
-If the Redis connection string is there, we register the distributed cache (that is, the implementation of `IDistributedCache` for Redis) and the FusionCache backplane.
+If the Redis connection string is there, we register the distributed cache (that is, the implementation of `IDistributedCache` for Redis), a serializer and the FusionCache backplane.
 
 ```csharp
 // ADD SERVICES: REDIS
@@ -149,7 +149,10 @@ if (string.IsNullOrWhiteSpace(redisConn) == false)
     {
         options.Configuration = redisConn;
     });
-
+    
+    // ADD SERVICES: JSON SERIALIZER
+	builder.Services.AddFusionCacheSystemTextJsonSerializer();
+    
     // ADD SERVICES: REDIS BACKPLANE
     builder.Services.AddFusionCacheStackExchangeRedisBackplane(options =>
     {
