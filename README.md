@@ -180,7 +180,7 @@ builder.Services.AddFusionCache(options =>
 
 As we can see we have opted for these defaults:
 - a `Duration` of `5min`
-- the [fail-safe](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FailSafe.md) mechanism enabled, and with a max duration (`FailSafeMaxDUration`) of `1h`
+- the [fail-safe](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/FailSafe.md) mechanism enabled, and with a max duration (`FailSafeMaxDuration`) of `1h`
 - a [soft timeout](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Timeouts.md) (`FactorySoftTimeout`)of `100ms`
 
 Keep in mind that these are just defaults: later on we can **override** anything we want in each single call, so think of this as just a baseline from where to start.
