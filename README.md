@@ -7,12 +7,10 @@ languages:
 products:
   - azure
   - vs-code
-  - azure-web-apps
+  - azure-app-service
   - azure-sql-database
   - azure-cache-redis
   - dotnet
-  - dotnet-core
-  - azure-app-service-web
 description: 'Creating a simple REST API with .NET Core, Azure SQL Database and FusionCache'
 ---
 
