@@ -1,6 +1,6 @@
 #!/bin/bash
 dacpac="false"
-sqlfiles="false"
+sqlfiles="true"
 SApassword=$1
 dacpath=$2
 sqlpath=$3

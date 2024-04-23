@@ -76,7 +76,7 @@ namespace WebApi1.Controllers
 		{
 			using var conn = _dapperContext.CreateConnection();
 
-			var product = _cache.GetOrSet(
+			var product = _cache.GetOrSet<Product>(
 				$"product:{id}",
 				(ctx, _) =>
 				{
