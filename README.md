@@ -61,7 +61,7 @@ FusionCache targets `.NET Standard 2.0`, so it runs on basically [any version](h
 
 To get started:
 - create an [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) database, we can even do it [for free](https://azure.microsoft.com/en-us/free/).
-- execute the SQL script located at [/data/schema.sql](/data/schema.sql) which will generate the necessary tables ([need help?](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-database))
+- execute the SQL script located at [/data/SampleDB.sql](/data/SampleDB.sql) which will generate the necessary tables ([need help?](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-database))
 - download or clone this repo on our local machine
 - set the connection string to point to our Azure SQL database
 - if we want, we can also set the connection string to point to a Redis instance to have a [2nd level](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/CacheLevels.md) cache and a [backplane](https://github.com/jodydonetti/ZiggyCreatures.FusionCache/blob/main/docs/Backplane.md)
