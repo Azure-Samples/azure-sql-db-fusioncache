@@ -71,7 +71,7 @@ Going at [https://localhost:5001](https://localhost:5001) we should see this scr
 
 ![The initial Swagger page with the available endpoints](/docs/screenshot.png)
 
-We then can use a tool like Postman or Fiddler (or directly the Swagger UI in the screenshot above) to hit the various endpoints.
+We then can use a tool like Insomnia, or a command like [curl](https://curl.se/docs/httpscripting.html) and [Invoke-RestMethod](https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod), or the Swagger UI (as shown in the previous image) to hit the various endpoints.
 
 First we may want to generate some data to play with: we can do this via the `/generate/{quantity}` endpoints for the various models we have.
 
